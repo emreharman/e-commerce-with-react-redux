@@ -6,16 +6,26 @@
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
+    "axios": "^0.21.1",
+    "json-server": "^0.16.3",
+    "npm-run-all": "^4.1.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-redux": "^7.2.3",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "redux": "^4.0.5",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
     "web-vitals": "^1.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "json:server": "json-server --watch db.json --port 8000",
+    "dev": "run-p json:server start"
   },
   "eslintConfig": {
     "extends": [
