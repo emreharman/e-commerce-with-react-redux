@@ -1,14 +1,19 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <div>
-      <nav className="navbar fixed-top navbar-dark bg-secondary">
+      <nav className="navbar navbar-dark bg-secondary">
         <div className="container">
-          <a className="navbar-brand" href="#">
+          <Link className="navbar-brand" to="/">
             e-commerce
-          </a>
-          <a href="#" className="navbar-brand" style={{ position: "relative" }}>
+          </Link>
+          <Link
+            to="/chart"
+            className="navbar-brand"
+            style={{ position: "relative" }}
+          >
             <i className="fas fa-shopping-cart"></i>
             <span
               className="badge bg-danger"
@@ -25,7 +30,7 @@ const Navbar = () => {
             >
               0
             </span>
-          </a>
+          </Link>
         </div>
       </nav>
     </div>
