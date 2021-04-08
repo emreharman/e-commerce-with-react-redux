@@ -6,6 +6,7 @@ import Phone from "./Phone";
 const PhoneList = () => {
   const phonesState = useSelector((state) => state.phones);
   const filteredBrands = useSelector((state) => state.filteredBrands);
+  const priceFilter = useSelector((state) => state.priceFilter);
   const dispatch = useDispatch();
   const [columnCount, setColumnCount] = useState(3);
   const layoutClassName = `row row-cols-${columnCount}`;
@@ -16,12 +17,14 @@ const PhoneList = () => {
         return true;
       }
     });
-    console.log(phones);
   } else {
     phones = phonesState.phones;
-    console.log(phones);
   }
-
+  if (priceFilter.priceFilter == "low") {
+    phones = phones.sort((a, b) => (a.price > b.price ? 1 : -1));
+  } else if (priceFilter.priceFilter == "high") {
+    phones = phones.sort((a, b) => (b.price > a.price ? 1 : -1));
+  }
   const color = { color: "#1E90FF" };
   useEffect(() => {
     dispatch(getPhones);

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getBrands } from "../redux/actions/brandsActions";
 import { getPhones } from "../redux/actions/phonesActions";
@@ -8,15 +8,45 @@ const PriceFilter = () => {
   const dispatch = useDispatch();
   const brandsState = state.brands;
   const phonesState = state.phones;
+  const [priceFilter, setPriceFilter] = useState("");
   useEffect(() => {
     dispatch(getBrands);
     dispatch(getPhones);
-  }, []);
+    dispatch({ type: "PRICE_FILTER_UPDATE", payload: priceFilter });
+  }, [priceFilter]);
   return (
     <div>
       <div className="card">
-        <div className="card-header">Price Sort</div>
-        <ul className="list-group list-group-flush">
+        <div
+          className="card-header"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <span>Price Sort</span>{" "}
+          {priceFilter != "" ? (
+            <span
+              style={{
+                fontSize: "12px",
+                textDecoration: "underline",
+                cursor: "pointer",
+              }}
+              onClick={() => {
+                setPriceFilter("");
+                document.getElementById("high").checked = false;
+                document.getElementById("low").checked = false;
+              }}
+            >
+              Remove Filter
+            </span>
+          ) : null}
+        </div>
+        <ul
+          className="list-group list-group-flush"
+          onChange={(e) => setPriceFilter(e.target.id)}
+        >
           {brandsState.success && phonesState.success ? (
             <>
               <li className="list-group-item">
