@@ -31,6 +31,38 @@
             "memory": "16GB, 32GB and RAM 1 GB",
             "id": 2,
             "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!"
+        },
+        {
+            "title": "Huawei P20 Lite 64 GB (Huawei Türkiye Garantili)",
+            "category": "phone",
+            "images": ["https://productimages.hepsiburada.net/s/19/280-413/9826975907890.jpg?v1", "https://productimages.hepsiburada.net/s/19/280-413/9826975940658.jpg?v1", "https://productimages.hepsiburada.net/s/19/280-413/9826975973426.jpg?v1", "https://productimages.hepsiburada.net/s/19/280-413/9826976006194.jpg?v1"],
+            "brandId": 2,
+            "price": 7429.467511354926,
+            "cpu": "1.3GHz Apple A6",
+            "camera": "8mp (3264x2448)",
+            "size": "124.4mm x 59.2mm x 8.97mm (4.9 x 2.33 x 0.35)",
+            "weight": "132 grams (4.7 ounces) with battery",
+            "display": "4.0 326 pixel density",
+            "battery": "1480 mAh",
+            "memory": "16GB, 32GB and RAM 1 GB",
+            "id": 3,
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!"
+        }, 
+        {
+            "title": "Meizu 16TH 64 GB (Meizu Türkiye Garantili)",
+            "category": "phone",
+            "images": ["https://productimages.hepsiburada.net/s/24/280-413/10094991409202.jpg?v1", "https://productimages.hepsiburada.net/s/24/280-413/10094991441970.jpg?v1", "https://productimages.hepsiburada.net/s/24/280-413/10094991474738.jpg?v1", "https://productimages.hepsiburada.net/s/24/280-413/10094991507506.jpg?v1"],
+            "brandId": 3,
+            "price": 5664.265944453384,
+            "cpu": "1.3GHz Apple A6",
+            "camera": "8mp (3264x2448)",
+            "size": "124.4mm x 59.2mm x 8.97mm (4.9 x 2.33 x 0.35)",
+            "weight": "132 grams (4.7 ounces) with battery",
+            "display": "4.0 326 pixel density",
+            "battery": "1480 mAh",
+            "memory": "16GB, 32GB and RAM 1 GB",
+            "id": 4,
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!"
         }
     ],
     "brands":[

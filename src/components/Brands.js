@@ -26,7 +26,7 @@ const Brands = () => {
                   }
                 });
                 return (
-                  <li className="list-group-item">
+                  <li className="list-group-item" key={brand.id}>
                     <input
                       className="form-check-input"
                       type="checkbox"
@@ -35,7 +35,7 @@ const Brands = () => {
                     />
                     <label
                       className="form-check-label"
-                      for="flexCheckDefault"
+                      htmlFor="flexCheckDefault"
                       style={{
                         display: "inline-block",
                         marginLeft: "1rem",

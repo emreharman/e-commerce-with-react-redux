@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  padding-bottom: 2rem;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -19,4 +20,24 @@ code {
 .list-group-item {
   height: 3.5rem;
   font-size: 1.2rem;
+}
+.layout-button {
+  display: inline-block;
+  margin-left: 10px;
+  background: transparent;
+  cursor: pointer;
+  padding: 4px;
+  border: 1px solid;
+  font-size: 10px;
+  color: gray;
+}
+.layout-button i {
+  display: inline-block;
+  margin-left: 3px;
+}
+.layout-button i:nth-child(1) {
+  margin: 0;
+}
+.card:hover {
+  box-shadow: 0px 9px 12px 6px rgba(197, 197, 197, 0.74);
 }
