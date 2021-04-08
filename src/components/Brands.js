@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getBrands } from "../redux/actions/brandsActions";
 import { getPhones } from "../redux/actions/phonesActions";
@@ -8,10 +8,27 @@ const Brands = () => {
   const dispatch = useDispatch();
   const brandsState = state.brands;
   const phonesState = state.phones;
+  const [checkedBrands, setCheckedBrands] = useState([]);
+  //console.log(checkedBrands);
+
+  const handleCheck = (e) => {
+    if (e.target.checked) {
+      if (!checkedBrands.includes(e.target.id)) {
+        setCheckedBrands([...checkedBrands, e.target.id]);
+      }
+    }
+    if (!e.target.checked) {
+      const filteredArr = checkedBrands.filter(function (item) {
+        return item !== e.target.id;
+      });
+      setCheckedBrands(filteredArr);
+    }
+  };
   useEffect(() => {
     dispatch(getBrands);
     dispatch(getPhones);
-  }, []);
+    dispatch({ type: "BRAND_FILTER_UPDATE", payload: checkedBrands });
+  }, [checkedBrands]);
   return (
     <div className="mb-5">
       <div className="card">
@@ -30,8 +47,10 @@ const Brands = () => {
                     <input
                       className="form-check-input"
                       type="checkbox"
-                      value=""
                       id={brand.id}
+                      onChange={(e) => {
+                        handleCheck(e);
+                      }}
                     />
                     <label
                       className="form-check-label"

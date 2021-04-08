@@ -5,10 +5,23 @@ import Phone from "./Phone";
 
 const PhoneList = () => {
   const phonesState = useSelector((state) => state.phones);
+  const filteredBrands = useSelector((state) => state.filteredBrands);
   const dispatch = useDispatch();
   const [columnCount, setColumnCount] = useState(3);
   const layoutClassName = `row row-cols-${columnCount}`;
-  let phones = phonesState.phones;
+  let phones;
+  if (filteredBrands.filteredBrands.length > 0) {
+    phones = phonesState.phones.filter((phone) => {
+      if (filteredBrands.filteredBrands.includes(phone.brandId.toString())) {
+        return true;
+      }
+    });
+    console.log(phones);
+  } else {
+    phones = phonesState.phones;
+    console.log(phones);
+  }
+
   const color = { color: "#1E90FF" };
   useEffect(() => {
     dispatch(getPhones);
