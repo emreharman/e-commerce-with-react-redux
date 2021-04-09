@@ -6,7 +6,7 @@ const Navbar = () => {
   const chartState = useSelector((state) => state.chart);
   return (
     <div>
-      <nav className="navbar navbar-dark bg-secondary">
+      <nav className="navbar fixed-top navbar-dark bg-secondary mb-5">
         <div className="container">
           <Link className="navbar-brand" to="/">
             e-commerce

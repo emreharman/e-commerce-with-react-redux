@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Chart from "./components/Chart";
 import PhoneDetail from "./components/PhoneDetail";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/chart" component={Chart} />
         <Route path="/phone-detail/:id" component={PhoneDetail}></Route>
       </Switch>
+      <Footer />
     </Router>
   );
 }

@@ -12,6 +12,14 @@ export const chartReducer = (state = initialState, action) => {
       return {
         items: action.payload,
       };
+    case "DELETE_FROM_CHART":
+      return {
+        items: action.payload,
+      };
+    case "EMPTY_CHART":
+      return {
+        items: [],
+      };
     default:
       return state;
   }

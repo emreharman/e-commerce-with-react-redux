@@ -5,8 +5,12 @@ import PhoneList from "./PhoneList";
 const Home = () => {
   return (
     <div
-      className="container mt-5"
-      style={{ display: "flex", justifyContent: "space-between" }}
+      className="container"
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        marginTop: "100px",
+      }}
     >
       <LeftSide />
       <PhoneList />

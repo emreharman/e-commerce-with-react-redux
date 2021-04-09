@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getBrands } from "../redux/actions/brandsActions";
+import { addToChart } from "../redux/actions/chartActions";
 
 const PhoneDetail = (props) => {
   const brandsState = useSelector((state) => state.brands);
@@ -44,9 +45,10 @@ const PhoneDetail = (props) => {
             justifyContent: "space-evenly",
           }}
         >
-          {phone.images.map((img) => {
+          {phone.images.map((img, index) => {
             return (
               <img
+                key={index}
                 src={img}
                 alt=""
                 style={{
@@ -108,7 +110,12 @@ const PhoneDetail = (props) => {
           <p style={{ margin: "0" }}>{phone.battery}</p>
         </div>
         <div style={{ marginTop: "20px" }}>
-          <button className="btn btn-outline-primary">Add to Chart</button>
+          <button
+            className="btn btn-outline-primary"
+            onClick={() => dispatch((dispatch) => addToChart(dispatch, phone))}
+          >
+            Add to Chart
+          </button>
         </div>
       </div>
     </div>
