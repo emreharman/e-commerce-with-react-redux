@@ -6,10 +6,12 @@ import {
 import { chartURL } from "../urls";
 import axios from "axios";
 
-export const getChart = (dispatch) => {
-  dispatch({ type: CHART_FETCH_START });
-  axios
-    .get(chartURL)
-    .then((res) => dispatch({ type: CHART_FETCH_SUCCESS, payload: res.data }))
-    .catch((err) => dispatch({ type: CHART_FETCH_FAIL, payload: err }));
+export const addToChart = (dispatch, phone) => {
+  let items = JSON.parse(window.localStorage.getItem("chart")).items;
+
+  items = [...items, phone];
+  //console.log(items);
+  window.localStorage.clear();
+  window.localStorage.setItem("chart", JSON.stringify({ items }));
+  dispatch({ type: "ADD_TO_CHART", payload: items });
 };

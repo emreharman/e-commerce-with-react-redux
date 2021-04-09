@@ -1,36 +1,16 @@
-import {
-  CHART_FETCH_START,
-  CHART_FETCH_SUCCESS,
-  CHART_FETCH_FAIL,
-} from "../actions/actionTypes";
-
-const initialState = {
-  chart: [],
-  start: false,
-  success: false,
-  err: null,
-};
+let initialState = JSON.parse(window.localStorage.getItem("chart"));
+if (initialState == undefined) {
+  initialState = {
+    items: [],
+  };
+  window.localStorage.setItem("chart", JSON.stringify(initialState));
+}
 
 export const chartReducer = (state = initialState, action) => {
   switch (action.type) {
-    case CHART_FETCH_START:
+    case "ADD_TO_CHART":
       return {
-        ...state,
-        start: true,
-      };
-    case CHART_FETCH_SUCCESS:
-      return {
-        ...state,
-        start: false,
-        success: true,
-        chart: action.payload,
-      };
-    case CHART_FETCH_FAIL:
-      return {
-        ...state,
-        start: false,
-        success: false,
-        err: action.payload,
+        items: action.payload,
       };
     default:
       return state;

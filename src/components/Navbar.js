@@ -1,7 +1,9 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  const chartState = useSelector((state) => state.chart);
   return (
     <div>
       <nav className="navbar navbar-dark bg-secondary">
@@ -28,7 +30,7 @@ const Navbar = () => {
                 lineHeight: "12px",
               }}
             >
-              0
+              {chartState.items.length}
             </span>
           </Link>
         </div>

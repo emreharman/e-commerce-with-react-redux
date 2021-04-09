@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { addToChart } from "../redux/actions/chartActions";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Phone = ({ phone }) => {
+  const dispatch = useDispatch();
   const [isHover, setIsHover] = useState(false);
   const unVisibleButton = { visibility: "hidden" };
   return (
@@ -32,13 +35,15 @@ const Phone = ({ phone }) => {
             {phone.description}
           </p>
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <a
-              href="#"
+            <button
               className="btn btn-primary "
               style={isHover ? null : unVisibleButton}
+              onClick={() =>
+                dispatch((dispatch) => addToChart(dispatch, phone))
+              }
             >
               Add to Chart
-            </a>
+            </button>
           </div>
         </div>
       </div>
