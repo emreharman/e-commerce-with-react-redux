@@ -30,6 +30,20 @@ const PhoneList = () => {
   useEffect(() => {
     dispatch(getPhones);
   }, []);
+  const phonesPerPage = 12;
+  const pageCount = Math.ceil(phones.length / phonesPerPage);
+  const [currentPage, setCurrentPage] = useState(1);
+  console.log(currentPage);
+  let pageNumberArray = [];
+  for (let i = 0; i < pageCount; i++) {
+    pageNumberArray[i] = (
+      <li className={currentPage == i + 1 ? "page-item active" : "page-item"}>
+        <button className="page-link" onClick={() => setCurrentPage(i + 1)}>
+          {i + 1}
+        </button>
+      </li>
+    );
+  }
   return (
     <div style={{ width: "75%" }}>
       <div
@@ -70,6 +84,34 @@ const PhoneList = () => {
           ) : null}
         </div>
       </div>
+      <nav aria-label="Page navigation example mt-5">
+        <ul className="pagination justify-content-end">
+          <li
+            className={currentPage == 1 ? "page-item disabled" : "page-item "}
+          >
+            <button
+              className="page-link"
+              tabIndex="-1"
+              onClick={() => setCurrentPage(currentPage - 1)}
+            >
+              Previous
+            </button>
+          </li>
+          {pageNumberArray.map((li) => li)}
+          <li
+            className={
+              currentPage == pageCount ? "page-item disabled" : "page-item "
+            }
+          >
+            <button
+              className="page-link"
+              onClick={() => setCurrentPage(currentPage + 1)}
+            >
+              Next
+            </button>
+          </li>
+        </ul>
+      </nav>
     </div>
   );
 };
