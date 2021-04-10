@@ -22,7 +22,7 @@ const Phone = ({ phone }) => {
             to={{ pathname: `/phone-detail/${phone.id}`, phone: phone }}
             style={{
               textDecoration: "none",
-              fontSize: "0.8rem",
+              fontSize: "0.7rem",
             }}
           >
             {phone.title}

@@ -30,13 +30,15 @@ const PhoneList = () => {
   useEffect(() => {
     dispatch(getPhones);
   }, []);
-  const phonesPerPage = 12;
-  const pageCount = Math.ceil(phonesState.phones.length / phonesPerPage);
   const [currentPage, setCurrentPage] = useState(1);
-  //I must do something like splice
+  const phonesPerPage = 12;
   const indexOfLastPhone = currentPage * phonesPerPage;
   const indexOfFirstPhone = indexOfLastPhone - phonesPerPage;
   const currentPhones = phones.slice(indexOfFirstPhone, indexOfLastPhone);
+  const pageCount = Math.ceil(phones.length / phonesPerPage);
+
+  //I must do something like splice
+
   console.log(currentPage);
   let pageNumberArray = [];
   for (let i = 0; i < pageCount; i++) {
