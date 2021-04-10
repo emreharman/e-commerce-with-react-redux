@@ -31,8 +31,12 @@ const PhoneList = () => {
     dispatch(getPhones);
   }, []);
   const phonesPerPage = 12;
-  const pageCount = Math.ceil(phones.length / phonesPerPage);
+  const pageCount = Math.ceil(phonesState.phones.length / phonesPerPage);
   const [currentPage, setCurrentPage] = useState(1);
+  //I must do something like splice
+  const indexOfLastPhone = currentPage * phonesPerPage;
+  const indexOfFirstPhone = indexOfLastPhone - phonesPerPage;
+  const currentPhones = phones.slice(indexOfFirstPhone, indexOfLastPhone);
   console.log(currentPage);
   let pageNumberArray = [];
   for (let i = 0; i < pageCount; i++) {
@@ -77,14 +81,14 @@ const PhoneList = () => {
         <div className={layoutClassName}>
           {phonesState.success ? (
             <>
-              {phones.map((phone) => {
+              {currentPhones.map((phone) => {
                 return <Phone phone={phone} />;
               })}
             </>
           ) : null}
         </div>
       </div>
-      <nav aria-label="Page navigation example mt-5">
+      <nav aria-label="Page navigation example" style={{ marginTop: "50px" }}>
         <ul className="pagination justify-content-end">
           <li
             className={currentPage == 1 ? "page-item disabled" : "page-item "}
